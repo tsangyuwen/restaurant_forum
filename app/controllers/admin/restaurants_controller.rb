@@ -41,7 +41,7 @@ class Admin::RestaurantsController < ApplicationController
 	private 
 
 	def restaurant_params
-		params.require(:restaurant).permit(:name, :tel, :opening_hours, :description, :address)
+		params.require(:restaurant).permit(:name, :tel, :opening_hours, :description, :address, :image)
 	end
 
 	def set_restaurant
