@@ -1,7 +1,6 @@
 # Category
 
 Category.destroy_all
-Restaurant.destroy_all
 
 puts "clear data"
 

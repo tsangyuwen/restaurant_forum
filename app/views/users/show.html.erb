@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <%= image_tag @user.image, class: "img-circle img-responsive center-block" %>
+    </div>
+
+    <div class="col-md-8 col-sm-6 col-xs-12">
+      <h1><%= @user.name %></h1>
+      <h5><%= @user.email %></h5>
+
+      <div>
+        <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+  </div>
+</div>
