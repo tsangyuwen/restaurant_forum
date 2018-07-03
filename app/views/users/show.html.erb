@@ -1,17 +1,18 @@
 <div class="container">
-  <div class="row">
+  <div class="row col-md-10 col-md-offset-1 page-header">
 
-    <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-sm-4 col-xs-12 user-inline">
       <%= image_tag @user.image, class: "img-circle img-responsive center-block" %>
     </div>
 
-    <div class="col-md-8 col-sm-6 col-xs-12">
+    <div class="col-md-9 col-sm-8 col-xs-12 user-inline">
       <h1><%= @user.name %></h1>
       <h5><%= @user.email %></h5>
+      <div><%= simple_format @user.intro %> </div>
 
-      <div>
+      <% if @user.email == current_user.email %>
         <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
-      </div>
+      <% end %>
     </div>
 
     <div class="clearfix"></div>
