@@ -32,7 +32,8 @@
                 <li><%= link_to 'Admin back', admin_restaurants_path %></li>
               <% end %>
               
-              <li><p class="navbar-text">Hi,</p></li>
+              <li><p class="navbar-text">Hi,<%= current_user.email %></p></li>
+              <li><%= link_to('Profile', users_path) %></li>
               <li><%= link_to('log out', destroy_user_session_path, method: :delete) %></li>
               <li><%= link_to('edit password', edit_user_registration_path) %></li>
             <% else %>
