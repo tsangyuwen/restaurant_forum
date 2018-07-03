@@ -1,7 +1,6 @@
 namespace :dev do
 
-	task fake: :environment do
-		Restaurant.destroy_all
+	task fake_restaurant: :environment do
 
 		500.times do |i|
 			Restaurant.create!(name: FFaker::Name.first_name,
