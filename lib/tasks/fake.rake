@@ -38,7 +38,8 @@ namespace :dev do
 
 		20.times do |i|
 			User.create!(email: FFaker::Internet.free_email,
-				password: FFaker::Lorem.words(8)
+				password: FFaker::Lorem.words(8),
+				name: FFaker::Lorem.words(4)
 			)
 		end
 
