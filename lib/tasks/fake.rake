@@ -1,8 +1,6 @@
 namespace :dev do
 	task fake_comment: :environment do
 
-		Comment.destroy_all
-
 		3.times do |i|
 			Restaurant.all.each do |r|
 				Comment.create!(content: FFaker::Lorem.paragraph,
@@ -38,8 +36,8 @@ namespace :dev do
 
 		20.times do |i|
 			User.create!(email: FFaker::Internet.free_email,
-				password: FFaker::Lorem.words(8),
-				name: FFaker::Lorem.words(4)
+				password: FFaker::Education.school,
+				name: FFaker::Name.unique.name
 			)
 		end
 
