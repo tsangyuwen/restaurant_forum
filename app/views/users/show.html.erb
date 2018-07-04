@@ -1,21 +1,42 @@
 <div class="container">
-  <div class="row col-md-10 col-md-offset-1 page-header">
+  <div class="row col-md-10 col-md-offset-1">
+    <div class="page-header"></div>
 
-    <div class="col-md-3 col-sm-4 col-xs-12 user-inline">
-      <%= image_tag @user.image, class: "img-circle img-responsive center-block" %>
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <%= image_tag @user.image, class: "img-circle img-responsive center-block" %>
+      </div>
+
+      <div class="col-md-9 col-sm-8 col-xs-12 ">
+        <h1><%= @user.name %></h1>
+        <h5><%= @user.email %></h5>
+        <div><%= simple_format @user.intro %> </div>
+
+        <% if @user.email == current_user.email %>
+          <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="col-md-9 col-sm-8 col-xs-12 user-inline">
-      <h1><%= @user.name %></h1>
-      <h5><%= @user.email %></h5>
-      <div><%= simple_format @user.intro %> </div>
+    <br>
 
-      <% if @user.email == current_user.email %>
-        <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary" %>
-      <% end %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= @commented_restaurants.count %> already comments restaurants</div>
+      <div class="panel-body">
+        <% @commented_restaurants.each do |restaurant| %>
+
+          <%= link_to restaurant_path(restaurant) do %>
+            <div class="my-restaurant col-md-2 col-sm-3 col-xs-4">
+              <%= image_tag restaurant.image, width: '90px', class: " img-responsive center-block" %>
+              <%= restaurant.name %>
+            </div>
+          <% end %>
+
+        <% end %>
+      </div>
+
     </div>
 
     <div class="clearfix"></div>
-
   </div>
+
 </div>

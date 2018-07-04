@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 	mount_uploader :image, PhotoUploader
-	has_many :comments
+  has_many :comments
+	has_many :restaurants, through: :comments
 	validates_presence_of :name
   
   # Include default devise modules. Others available are:
