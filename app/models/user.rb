@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   #favorite
   has_many :favorites, dependent: :destroy
-  has_many :favorited_restaurants, throught: :favorites, source: :restaurant
+  has_many :favorited_restaurants, through: :favorites, source: :restaurant
 
 	validates_presence_of :name
   
