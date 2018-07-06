@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   #followship
   has_many :followships, dependent: :destroy
-  has_many :followinggs, throught: :followships
+  has_many :followings, through: :followships
 
 	validates_presence_of :name
   
