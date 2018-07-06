@@ -24,7 +24,9 @@
 					</div>
 
 					<div class="col-md-9 col-sm-9">
-						<h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
+						<h4><%= link_to restaurant.name, restaurant_path(restaurant) %>
+						<span class="label label-default">favorite count: 
+						<%= restaurant.favorites_count %><span></h4>
 						<p><%= truncate(restaurant.description, length: 80) %></p>
 						<%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %>
 						<%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
