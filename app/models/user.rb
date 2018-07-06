@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 	mount_uploader :image, PhotoUploader
-  has_many :comments
+  has_many :comments ,denpendent: :restrict_with_error
 	has_many :restaurants, through: :comments
 	validates_presence_of :name
   
