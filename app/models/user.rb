@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
 
+  #followship
+  has_many :followships, dependent: :destroy
+  has_many :followinggs, throught: :followships
+
 	validates_presence_of :name
   
   # Include default devise modules. Others available are:
