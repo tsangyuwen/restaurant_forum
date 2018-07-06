@@ -15,6 +15,10 @@ class RestaurantsController < ApplicationController
   	@recent_comments = Comment.order(created_at: :desc).limit(10)
   end
 
+  def ranking
+    @top_restaurants = Restaurant.order(favorites_count: :desc).limit(10)
+  end
+
   def favorite
     @restaurant.favorites.create!(user: current_user)
     @restaurant.count_favorites
@@ -38,6 +42,8 @@ class RestaurantsController < ApplicationController
     likes.destroy_all
     redirect_back(fallback_location: root_path)
   end
+
+
 
   private 
 
