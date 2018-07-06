@@ -1,7 +1,14 @@
 class User < ApplicationRecord
 	mount_uploader :image, PhotoUploader
+
+  #comment
   has_many :comments ,dependent: :restrict_with_error
 	has_many :restaurants, through: :comments
+
+  #favorite
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_restaurants, throught: :favorites, source: :restaurant
+
 	validates_presence_of :name
   
   # Include default devise modules. Others available are:
