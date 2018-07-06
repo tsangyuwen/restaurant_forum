@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show] do
     collection do
       get :feeds
+      get :ranking
     end
     
     member do
