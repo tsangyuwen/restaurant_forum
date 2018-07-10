@@ -1,9 +1,31 @@
-<ul>
-	<% @users.each do |user| %>
-		<li>
-			<%= user.name %>
-			<%= link_to 'Follow', followships_path(following_id: user), method: :post %>
-			<%= link_to 'Unfollow', followship_path(user), method: :delete %>
-		</li>
-	<% end %>
-</ul>
+<div class="container row">
+  <ul class="nav nav-tabs">
+    <li role="presentation"><%= link_to "index", root_path %></li>
+    <li role="presentation"><%= link_to "newest", feeds_restaurants_path %></li>
+    <li role="presentation"><%= link_to "Top 10", ranking_restaurants_path %></li>
+    <li role="presentation" class="active"><%= link_to "food expert", users_path %></li>
+  </ul>
+</div>
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+
+			<h1>Food Expert</h1>
+			<hr>
+
+			<% @users.each do |user| %>
+				<div class="col-md-3 col-sm-3 text-center user-item">
+					<%= link_to user_path(user) do %>
+						<%= image_tag user.image, class: "img-responsive center-block" %>
+						<%= user.name %>
+					<% end %>
+
+					<%= render partial: "shared/follow", locals: {user: user} %>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+</div>
